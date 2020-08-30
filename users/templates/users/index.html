@@ -1,0 +1,342 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block content %}
+<link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+<link href="{% static 'css/style1.css' %}" rel="stylesheet">
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/lightbox.min.css' %}" rel="stylesheet">
+
+    <div class="container">
+
+
+      	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+		<div class="container">
+		  <!-- <a class="navbar-brand" href="index.html"><span>R</span>onaldo</a> -->
+             <img src="{% static 'images/teens connect africa.png' %}" alt="Teens connect" id="logo" data-height-percentage="54" data-actual-width="1080" data-actual-height="720" width="200" height="120">
+		  <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="oi oi-menu"></span> Menu
+		  </button>
+
+		  <div class="collapse navbar-collapse" id="ftco-nav">
+			<ul class="navbar-nav nav ml-auto">
+              <div class="logo float-left">
+
+      </div>
+
+			  <li class="nav-item"><a href="{% url 'users:index' %}" class="nav-link"><span>Home</span></a></li>
+			  <li class="nav-item"><a href="#about" class="nav-link"><span>About</span></a></li>
+			  {%if education  or publications or experiences or skills or awards%}
+			  <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
+			  {%endif%}
+			  {%if projects%}
+			  <li class="nav-item"><a href="#projects-section" class="nav-link"><span>Projects</span></a></li>
+			  {%endif%}
+
+			  <li class="nav-item"><a href="#contact" class="nav-link"><span>Contact</span></a></li>
+			  {% if user.is_authenticated %}
+			  <li class="nav-item"><a href="{% url 'users:profile' %}" class="nav-link"><span>Edit Profile</span></a></li>
+
+			  <li class="nav-item"><a class="nav-link"> <span>Hello, {{user.first_name}}</span></a></li>
+
+			  <li class="nav-item"><a href="{% url 'accounts:logout' %}" class="nav-link"><span>Logout</span></a></li>
+
+				{% else %}
+				<li class="nav-item"><a href="{% url 'accounts:login' %}"class="nav-link"><span>Login</span></a></li>
+
+				<li class="nav-item"><a href="{% url 'accounts:register' %}" class="nav-link"><span>Need Portfolio?</span></a></li>
+				{% endif %}
+			</ul>
+		  </div>
+		</div>
+	  </nav>
+
+    </div>
+  </header><!-- #header -->
+
+  <!--==========================
+    Intro Section
+  ============================-->
+  <section id="intro" class="clearfix">
+    <div class="container">
+
+      <div class="intro-img">
+        <img src="{% static 'images/intro-img.svg' %}" alt="" class="img-fluid">
+      </div>
+
+      <div class="intro-info">
+        <h2>Build<br><span>Your Portfolio</span><br>in Minutes!</h2>
+        <div>
+          <a href="{% url 'accounts:register' %}" class="btn-get-started scrollto">Get Started</a>
+
+        </div>
+      </div>
+
+    </div>
+  </section><!-- #intro -->
+
+  <main id="main">
+
+    <!--==========================
+      About Us Section
+    ============================-->
+    <section id="about">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>About Us</h3>
+          <p>TeensconnectAfrica is a portfolio building platform</p>
+        </header>
+
+        <div class="row about-container">
+
+          <div class="col-lg-6 content order-lg-1 order-2">
+            <p>
+             We thrilled to making you a Personal Portfolio.
+            </p>
+
+            <div class="icon-box wow fadeInUp">
+              <div class="icon"><i class="fa fa-address-book-o"></i></div>
+              <h4 class="title"><a href="">Portfolio Page</a></h4>
+              <p class="description">A personal portfolio to tell people about youself and upload your picture and resume</p>
+            </div>
+
+            <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
+              <div class="icon"><i class="fa fa-photo"></i></div>
+              <h4 class="title"><a href="">Sharable Url</a></h4>
+              <p class="description">After customizing your portfolio, you get an access to a url of your own to put on your socail media account</p>
+            </div>
+
+            <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+              <div class="icon"><i class="fa fa-bar-chart"></i></div>
+              <h4 class="title"><a href="">Projects and Publications</a></h4>
+              <p class="description">Are you a writer? a Developer? or you embark of different projects? This is the best app for you!
+              Display your publications on your portfolio and your projects</p>
+            </div>
+
+          </div>
+
+          <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
+            <img src="{% static 'images/about-img.svg' %}" class="img-fluid" alt="">
+          </div>
+        </div>
+
+        <div class="row about-extra">
+          <div class="col-lg-6 wow fadeInUp">
+            <img src="{% static 'images/test4.png' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
+            <h4>Procedures</h4>
+            <p>
+             Create an account by putting in your Required informations.
+            </p>
+             <div>
+          <a href="{% url 'accounts:register' %}" class="btn btn-lg btn-primary">Register an account</a>
+
+        </div>
+          </div>
+        </div>
+
+        <div class="row about-extra">
+          <div class="col-lg-6 wow fadeInUp order-1 order-lg-2">
+            <img src="{% static 'images/test5.png' %}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-6 wow fadeInUp pt-4 pt-lg-0 order-2 order-lg-1">
+            <h4>Login</h4>
+            <a href="{% url 'accounts:login' %}" class="btn btn-lg btn-primary">Log in</a>
+          </div>
+
+        </div>
+
+      </div>
+
+       <div class="row about-extra">
+          <div class="col-lg-6 wow fadeInUp">
+            <img src="{% static 'images/test1.png' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
+            <h4>Step 3</h4>
+            <p>
+             Edit your Portfolio
+            </p>
+             <div>
+
+        </div>
+          </div>
+        </div>
+      <div class="row about-extra">
+          <div class="col-lg-6 wow fadeInUp order-1 order-lg-2">
+            <img src="{% static 'images/test3.png' %}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-6 wow fadeInUp pt-4 pt-lg-0 order-2 order-lg-1">
+            <h4 style="margin-left:30px;">Preview Your Portfolio</h4>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- #about -->
+
+
+
+    <!--==========================
+      Clients Section
+    ============================-->
+    <!--==========================
+      Team Section
+    ============================-->
+<!-- #team -->
+
+    <!--==========================
+      Clients Section
+    ============================-->
+    <section id="clients" class="section-bg">
+
+      <div class="container">
+
+        <div class="section-header">
+          <h3>Our Sponsors</h3>
+          <p>The Organizations that brought up TeensConnectAfrica </p>
+        </div>
+
+        <div class="row no-gutters clients-wrap clearfix wow fadeInUp">
+
+
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="client-logo">
+              <img src="{% static 'images/startup oyo.png' %}" class="img-fluid" alt="">
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!--==========================
+      Contact Section
+    ============================-->
+    <section id="contact">
+      <div class="container-fluid">
+
+        <div class="section-header">
+          <h3>Contact Us</h3>
+        </div>
+
+        <div class="row wow fadeInUp">
+
+          <div class="col-lg-6">
+            <div class="map mb-4 mb-lg-0">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 312px;" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="row">
+              <div class="col-md-5 info">
+                <i class="ion-ios-location-outline"></i>
+                <p>Location: Oyo, Nigeria.</p> <hr>
+              </div>
+
+              <div class="col-md-3 info" style="margin-right:70px">
+                <i class="ion-ios-email-outline"></i>
+                <p>Email: <span>teensconnectafrica@gmail.com</span></p><hr>
+              </div>
+            </div>
+
+           <div class="row no-gutters block-9">
+		  <div class="col-md-6 order-md-last d-flex" style="margin-right:600px">
+			<form action="{% url 'users:mail' %}" method="post" class="bg-light p-4 p-md-5 contact-form">
+				{% csrf_token %}
+
+			  <div class="form-group" style="width:410px;">
+				<input type="text" name="person_name" class="form-control" placeholder="Your Name" required>
+			  </div>
+			  <div class="form-group" style="width:410px;">
+				<input type="text" name="email" class="form-control" placeholder="Your Email" required>
+			  </div>
+			  <div class="form-group" style="width:410px;">
+				<input type="text" name="email_subject" class="form-control" placeholder="Subject" required>
+			  </div>
+			  <div class="form-group" style="width:410px;">
+				<textarea  id="" name="message" cols="30" rows="7" class="form-control" placeholder="Message" required></textarea>
+			  </div>
+			  <div class="form-group">
+				<input type="submit" value="Send Message" class="btn btn-primary py-3 px-5" >
+			  </div>
+			</form>
+
+		  </div>
+
+		  <div class="col-md-6 d-flex">
+		  	<div class="img" style="background-image: url({{user_extra_details.user_image.url}});"></div>
+		  </div>
+		</div>
+	  </div>
+    </section><!-- #contact -->
+
+  </main>
+
+  <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 footer-info">
+            <img src="{% static 'images/Teensconnect.jpg' %}" alt="Teens connect" id="logo" data-height-percentage="54" data-actual-width="1080" data-actual-height="720" width="300" height="200">
+            <p></p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Contact Us</h4>
+            <p>
+
+              Oyo State<br>
+              Nigeria<br>
+              <strong>Email:</strong>teensconnectafrica@gmail.com<br>
+            </p>
+
+
+          </div>
+
+
+
+          <div class="col-lg-3 col-md-6 footer-newsletter">
+            <h4>Subscribe To Our Newsletter</h4>
+            <p>Get the latest informations about us</p>
+          <a href="{% url 'newsletter:newsletter' %}"> <input type="submit"  value="Subscribe"></a>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>TeensconnectAfrica</strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+
+ <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'js/easing.min.js' %}"></script>
+  <script src="{% static 'js/mobile-nav/mobile-nav.js' %}"></script>
+  <script src="{% static 'js/wow/wow.min.js' %}"></script>
+  <script src="{% static 'js/waypoints/waypoints.min.js' %}"></script>
+  <script src="{% static 'js/counterup/counterup.min.js' %}"></script>
+  <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'js/lightbox/js/lightbox.min.js' %}"></script>
+
+{% endblock content %}
