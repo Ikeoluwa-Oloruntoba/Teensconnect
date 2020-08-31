@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '5$!4lwj2&v8*50v(zykx6l#!56pv4k)1t@r&f^%h8vko_17j8t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['teensconnectafrica.herokuapp.com']
 
@@ -80,15 +80,16 @@ WSGI_APPLICATION = 'portfolio_builder.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
-
+        'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd36ebavlc8j3qj',
+        'USER': 'pjriadtceverwl',
+        'PASSWORD': '30086175f44b553f2df89d92d74e3b996d77fc39f32f6ef1a11d27ac25448c1e',
+        'HOST' : 'ec2-52-202-198-60.compute-1.amazonaws.com',
+        'PORT': '5432'
+            }
+        }
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
