@@ -155,7 +155,7 @@ class UserExtraDetails(models.Model):
     user_address = models.CharField(max_length=200, default="")
     image_path = time.strftime('files/%Y/%m/%d')
 
-    user_resume = models.FileField(upload_to=PathAndRename(image_path), default="resume-samples.pdf")
+    user_resume = models.FileField(upload_to=PathAndRename(image_path), default="resume.pdf")
 
     user_project_completed = models.IntegerField(default=0)
 
@@ -184,5 +184,3 @@ class ContactDetails(models.Model):
 
     def lowerCase(self):
         return self.contact_type.lower()
-
-
