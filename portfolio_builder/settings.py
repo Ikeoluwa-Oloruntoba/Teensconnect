@@ -23,8 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '5$!4lwj2&v8*50v(zykx6l#!56pv4k)1t@r&f^%h8vko_17j8t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
+DEBUG = True
 ALLOWED_HOSTS = ['teensconnectafrica.herokuapp.com', '127.0.0.1:8000']
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
